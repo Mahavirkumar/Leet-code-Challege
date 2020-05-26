@@ -1,0 +1,34 @@
+problem statement:  Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
+code::
+class Solution {
+    public int findMaxLength(int[] nums) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+         int max=Integer.MIN_VALUE;
+        int f=0,t=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
+                nums[i]=-1;
+                f=1;
+                t++;
+            }
+        } 
+        if(f==0||nums.length==1||t==nums.length)
+            return 0;
+          
+           hm.put(nums[0],0);
+            for(int i=1;i<nums.length;i++){
+            nums[i]+=nums[i-1];
+                if(nums[i]==0)
+                    max=i+1;
+                if(hm.containsKey(nums[i])==true){
+                   max=Math.max(i-hm.get(nums[i]),max);
+                }
+                else
+                hm.put(nums[i],i);
+                
+            }
+        return max;
+           
+        
+    }
+}
