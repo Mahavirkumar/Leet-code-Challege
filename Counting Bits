@@ -1,0 +1,20 @@
+problem:
+Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
+
+code:
+class Solution {
+    public int[] countBits(int num) {
+        int a[]=new int[num+1];
+        a[0]=0;
+        for(int j=1;j<=num;j++){
+            int c=0;
+            int i=j;
+             while(i>0){
+                i=(i&(i-1));
+                 c++;
+        }
+            a[j]=c;
+       }
+        return a;
+    }
+}
