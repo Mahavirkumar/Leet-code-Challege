@@ -1,0 +1,32 @@
+class Solution {
+    int res=0;
+    public int searchInsert(int[] nums, int target) {
+     return search(nums,0,(nums.length-1),target);   
+        
+        
+    } 
+       int search(int nums[],int l,int h,int target){
+       
+       
+            while(l<=h){
+          int mid=(l+h)/2;
+            if(nums[mid]==target)
+                return mid;
+          else if(nums[mid]>target)
+           {
+             h=mid-1;
+             res=mid;
+           }
+            
+            else
+            {
+                l=mid+1;
+             res=mid+1;
+            }
+        }
+        return res;
+    }
+      
+        
+    
+}
