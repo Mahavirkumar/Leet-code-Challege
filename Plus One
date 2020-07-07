@@ -1,0 +1,30 @@
+problem statement:
+
+Given a non-empty array of digits representing a non-negative integer, plus one to the integer.
+
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.
+
+You may assume the integer does not contain any leading zero, except the number 0 itself.
+
+code :java :
+
+class Solution {
+    public int[] plusOne(int[] dig) {
+         int l=dig.length;
+        while(l>0){
+       
+        if(dig[l-1]<9)
+        {dig[l-1]=dig[l-1]+1;
+        return dig;
+        }
+        else
+        { dig[l-1]=0;
+      
+        }
+              l=l-1;
+    } 
+        int res[]=new int[(dig.length)+1];
+        res[0]=1;
+        return res;
+    }
+}
